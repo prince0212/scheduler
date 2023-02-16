@@ -1,0 +1,88 @@
+/**
+ * MB "Vienas bitas" (Magetrend.com)
+ *
+ * @category MageTrend
+ * @package  Magetend/Scheduler
+ * @author   Edvinas St. <edwin@magetrend.com>
+ * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     http://www.magetrend.com/magento-2-scheduler
+ */
+
+.scheduler-schedule-index .col-entity_id {
+    width: 80px;
+}
+
+.scheduler-schedule-index .col-is_active,
+.scheduler-schedule-index .col-type {
+    width: 100px;
+}
+
+.scheduler-schedule-index .col-massaction label {
+    text-align: center;
+}
+.scheduler-schedule-index .col-massaction {
+    width: 60px;
+}
+.scheduler-schedule-index .col-status {
+    width: 172px;
+}
+
+.scheduler-schedule-index .col-date_from ,
+.scheduler-schedule-index .col-date_to {
+    width: 200px;
+}
+
+.schedule-status {
+    padding: 0px 0;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+}
+
+
+.schedule-status.schedule-status-scheduled,
+.schedule-status.schedule-status-running,
+.schedule-status.schedule-status-finished,
+.schedule-status.schedule-status-missed {
+    background: #22bd03;
+    color: #ffffff;
+}
+
+.schedule-status.schedule-status-paused {
+    background: #d90101;
+    color: #ffffff;
+}
+
+.schedule-status.schedule-status-missed {
+    background: #05aac1;
+    color: #ffffff;
+}
+
+.schedule-status.schedule-status-finished {
+    background: #d9d9d9;
+    color: #000;
+}
+
+.schedule-status.schedule-status-running {
+    background: #fff609;
+    color: #000;
+}
+
+.legend ul {
+    list-style: none;
+}
+
+.legend ul li {
+    padding-bottom: 5px;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.legend ul li span {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 1px;
+}

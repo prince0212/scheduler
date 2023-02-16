@@ -1,0 +1,16 @@
+<!--@subject {{trans "The task \"%name\" was completed!" name=$schedule.getName() }} @-->
+<!--@vars {
+"var schedule":"Schedule"
+} @-->
+
+<p>
+    {{trans "The task"}}
+    <b>{{var schedule.getName()}}</b>
+    {{trans "wich was scheduled at %date was completed." date=$schedule.getFormattedDateFrom(true)}}
+</p>
+
+{{if schedule.getDateTo()}}
+<p>
+{{trans "The data will be restored from the backups at %date." date=$schedule.getFormattedDateTo(true)}}
+</p>
+{{/if}}

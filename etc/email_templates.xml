@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MB "Vienas bitas" (Magetrend.com)
+ *
+ * @category MageTrend
+ * @package  Magetend/Scheduler
+ * @author   Edvinas St. <edwin@magetrend.com>
+ * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     http://www.magetrend.com/magento-2-scheduler
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="scheduler_notification_start_email_template"
+              label="Schedule Begin Email Template"
+              file="schedule_start.html"
+              type="html"
+              module="Magetrend_Scheduler"
+              area="adminhtml"/>
+
+    <template id="scheduler_notification_end_email_template"
+              label="Schedule End Email Template"
+              file="schedule_end.html"
+              type="html"
+              module="Magetrend_Scheduler"
+              area="adminhtml"/>
+</config>
+

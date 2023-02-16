@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MB "Vienas bitas" (Magetrend.com)
+ *
+ * @category MageTrend
+ * @package  Magetend/Scheduler
+ * @author   Edvinas St. <edwin@magetrend.com>
+ * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     http://www.magetrend.com/magento-2-scheduler
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <tab id="magetrend" translate="label" sortOrder="200">
+            <label>Magetrend Extensions</label>
+        </tab>
+        <section id="scheduler" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Scheduler</label>
+            <tab>magetrend</tab>
+            <resource>Magetrend_Scheduler::config_scheduler</resource>
+            <group id="general" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="is_active" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Is Active</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="schedule" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Schedule Settings</label>
+                <field id="lifetime" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Missed if Not Run Within X Minutes</label>
+                </field>
+            </group>
+
+            <group id="notification" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Notifications Settings</label>
+                <field id="send_to" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send To</label>
+                    <comment>Email Address</comment>
+                </field>
+
+                <field id="send_start_email" translate="label" type="select" sortOrder="34" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Send Begin Email</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Send email notification when schedule will be processed</comment>
+                </field>
+
+                <field id="start_email_template" translate="label" type="select" sortOrder="35" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Begin Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+
+                <field id="send_end_email" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Send End Email</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Send email notification when data will be reverted back</comment>
+                </field>
+
+                <field id="end_email_template" translate="label" type="select" sortOrder="45" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>End Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+
+            </group>
+            <group id="license" translate="label" type="text" sortOrder="9999" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label><![CDATA[Information & License]]></label>
+                <field id="key" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>License Key</label>
+                    <comment><![CDATA[
+                    If you don't know the license key, please follow this article
+                    <a target="_blank" href="http://wiki2.magetrend.com/licensing/">
+                    http://wiki2.magetrend.com/licensing/</a>
+                    ]]></comment>
+                </field>
+                <field id="info" translate="label" type="label" sortOrder="1002" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <frontend_model>Magetrend\Scheduler\Block\Adminhtml\Config\System\Config\Info</frontend_model>
+                </field>
+            </group>
+
+        </section>
+    </system>
+</config>

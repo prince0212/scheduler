@@ -1,0 +1,45 @@
+<?php
+/**
+ * MB "Vienas bitas" (Magetrend.com)
+ *
+ * @category MageTrend
+ * @package  Magetend/Scheduler
+ * @author   Edvinas St. <edwin@magetrend.com>
+ * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     http://www.magetrend.com/magento-2-scheduler
+ */
+?>
+<?php
+    $element = $block->getElement();
+    $htmlId = $element->getHtmlId();
+?>
+<div data-bind="scope: 'customCategory-<?php echo $htmlId; ?>'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "customCategory-<?php echo $htmlId; ?>": {
+                        "component": "Magetrend_Scheduler/js/form/element/category",
+                        "template" : "Magetrend_Scheduler/form/element/category/field",
+                        "filterOptions": true,
+                        "levelsVisibility": "1",
+                        "multiple": true,
+                        "showCheckbox": true,
+                        "hiddenElementId": "<?php echo $htmlId; ?>",
+                        "options": <?php echo $block->getCategoriesTree();?>,
+                        "default" : <?php echo $block->getDefault(); ?>
+                    }
+                }
+            }
+        }
+    }
+</script>
+<input type="hidden" id="<?php echo $htmlId; ?>"
+       name="<?php echo $element->getName(); ?>"
+       value="<?php echo $element->getEscapedValue(); ?>"/>
+<script>
+    //require('mage/apply/main').apply();
+</script>

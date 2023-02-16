@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MB "Vienas bitas" (Magetrend.com)
+ *
+ * @category MageTrend
+ * @package  Magetend/Scheduler
+ * @author   Edvinas St. <edwin@magetrend.com>
+ * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     http://www.magetrend.com/magento-2-scheduler
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="mt_scheduler_process" instance="Magetrend\Scheduler\Cron\Schedule\Process" method="execute">
+            <schedule>* * * * *</schedule>
+        </job>
+
+        <job name="mt_scheduler_revert" instance="Magetrend\Scheduler\Cron\Schedule\Revert" method="execute">
+            <schedule>* * * * *</schedule>
+        </job>
+    </group>
+</config>

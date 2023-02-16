@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MB "Vienas bitas" (Magetrend.com)
+ *
+ * @category MageTrend
+ * @package  Magetend/Scheduler
+ * @author   Edvinas St. <edwin@magetrend.com>
+ * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     http://www.magetrend.com/magento-2-scheduler
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <update handle="formkey"/>
+    <update handle="scheduler_schedule_block"/>
+    <head>
+        <css src="Magetrend_Scheduler::css/adminhtml.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magetrend\Scheduler\Block\Adminhtml\Schedule" name="adminhtml.scheduler.schedule.container"/>
+            <block class="Magetrend\Scheduler\Block\Adminhtml\Schedule\Legend"
+                   name="adminhtml.scheduler.schedule.legend"
+                   template="Magetrend_Scheduler::schedule/legend.phtml" />
+        </referenceContainer>
+    </body>
+</page>

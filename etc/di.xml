@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MB "Vienas bitas" (Magetrend.com)
+ *
+ * @category MageTrend
+ * @package  Magetend/Scheduler
+ * @author   Edvinas St. <edwin@magetrend.com>
+ * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     http://www.magetrend.com/magento-2-scheduler
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magetrend\Scheduler\Api\Data\ScheduleInterface" type="Magetrend\Scheduler\Model\Schedule" />
+    <preference for="Magetrend\Scheduler\Api\ScheduleRepositoryInterface" type="Magetrend\Scheduler\Model\ScheduleRepository" />
+    <preference for="Magetrend\Scheduler\Api\ScheduleManagementInterface" type="Magetrend\Scheduler\Model\ScheduleManagement" />
+    <preference for="Magetrend\Scheduler\Api\Data\ScheduleSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+    <virtualType name="Magetrend\Scheduler\Model\Api\SearchCriteria\ScheduleCollectionProcessor" type="Magento\Framework\Api\SearchCriteria\CollectionProcessor">
+        <arguments>
+            <argument name="processors" xsi:type="array">
+                <item name="filters" xsi:type="object">Magento\Framework\Api\SearchCriteria\CollectionProcessor\FilterProcessor</item>
+                <item name="sorting" xsi:type="object">Magento\Framework\Api\SearchCriteria\CollectionProcessor\SortingProcessor</item>
+                <item name="pagination" xsi:type="object">Magento\Framework\Api\SearchCriteria\CollectionProcessor\PaginationProcessor</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magetrend\Scheduler\Model\ScheduleRepository">
+        <arguments>
+            <argument name="collectionProcessor" xsi:type="object">Magetrend\Scheduler\Model\Api\SearchCriteria\ScheduleCollectionProcessor</argument>
+        </arguments>
+    </type>
+</config>

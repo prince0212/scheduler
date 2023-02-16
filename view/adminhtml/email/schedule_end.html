@@ -1,0 +1,10 @@
+<!--@subject {{trans "The backups of task \"%name\" has been restored" name=$schedule.getName() }} @-->
+<!--@vars {
+"var schedule":"Schedule"
+} @-->
+
+<p>
+    {{trans "The data which was changed by processing task"}}
+    <b>"{{var schedule.getName()}}"</b>
+    {{trans "has been restored from the backups at %date" date=$schedule.getFormattedDateTo(true)}}
+</p>

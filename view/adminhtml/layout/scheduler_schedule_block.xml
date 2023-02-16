@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MB "Vienas bitas" (Magetrend.com)
+ *
+ * @category MageTrend
+ * @package  Magetend/Scheduler
+ * @author   Edvinas St. <edwin@magetrend.com>
+ * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     http://www.magetrend.com/magento-2-scheduler
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="adminhtml.scheduler.schedule.container">
+            <block class="Magetrend\Scheduler\Block\Adminhtml\Schedule\Grid" name="adminhtml.scheduler.schedule.grid" as="grid">
+                <arguments>
+                    <argument name="id" xsi:type="string">scheduleGrid</argument>
+                    <argument name="dataSource" xsi:type="object">Magetrend\Scheduler\Model\ResourceModel\Schedule\Collection</argument>
+                    <argument name="default_sort" xsi:type="string">entity_id</argument>
+                    <argument name="default_dir" xsi:type="string">desc</argument>
+                    <argument name="use_ajax" xsi:type="string">1</argument>
+                    <argument name="grid_url" xsi:type="url" path="*/*/grid">
+                        <param name="_current">1</param>
+                    </argument>
+                </arguments>
+
+                <block class="Magento\Backend\Block\Widget\Grid\Massaction" name="adminhtml.scheduler.schedule.grid.massaction" as="grid.massaction">
+                    <arguments>
+                        <argument name="massaction_id_field" xsi:type="string">entity_id</argument>
+                        <argument name="form_field_name" xsi:type="string">schedules</argument>
+                        <argument name="use_select_all" xsi:type="string">1</argument>
+                        <argument name="options" xsi:type="options" model="Magetrend\Scheduler\Model\Config\Source\MassAction"/>
+                    </arguments>
+                </block>
+
+
+                <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" name="adminhtml.scheduler.schedule.grid.columnSet" as="grid.columnSet">
+                    <arguments>
+                        <argument name="rowUrl" xsi:type="array">
+                            <item name="path" xsi:type="string">*/*/edit</item>
+                            <item name="extraParamsTemplate" xsi:type="array">
+                                <item name="id" xsi:type="string">getId</item>
+                            </item>
+                        </argument>
+                    </arguments>
+
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="entity_id">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">ID</argument>
+                            <argument name="index" xsi:type="string">entity_id</argument>
+
+                            <argument name="header_css_class" xsi:type="string">col-id</argument>
+                            <argument name="column_css_class" xsi:type="string">col-id</argument>
+                        </arguments>
+                    </block>
+
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="is_active">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Enabled</argument>
+                            <argument name="index" xsi:type="string">is_active</argument>
+                            <argument name="type" xsi:type="string">options</argument>
+                            <argument name="options" xsi:type="array">
+                                <item name="no" xsi:type="array">
+                                    <item name="value" xsi:type="string">0</item>
+                                    <item name="label" xsi:type="string" translate="true">No</item>
+                                </item>
+                                <item name="yes" xsi:type="array">
+                                    <item name="value" xsi:type="string">1</item>
+                                    <item name="label" xsi:type="string" translate="true">Yes</item>
+                                </item>
+
+                            </argument>
+                            <argument name="header_css_class" xsi:type="string">col-is_active</argument>
+                            <argument name="column_css_class" xsi:type="string">col-is_active</argument>
+                        </arguments>
+                    </block>
+
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="type">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Type</argument>
+                            <argument name="index" xsi:type="string">type</argument>
+                            <argument name="header_css_class" xsi:type="string">col-type</argument>
+                            <argument name="column_css_class" xsi:type="string">col-type</argument>
+                            <argument name="options" xsi:type="options" model="Magetrend\Scheduler\Model\Config\Source\Type"/>
+                            <argument name="filter" xsi:type="string">Magento\Backend\Block\Widget\Grid\Column\Filter\Select</argument>
+                            <argument name="renderer" xsi:type="string">Magetrend\Scheduler\Block\Adminhtml\Schedule\Grid\Column\Renderer\Type</argument>
+                        </arguments>
+                    </block>
+
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="name">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Name</argument>
+                            <argument name="index" xsi:type="string">name</argument>
+                            <argument name="header_css_class" xsi:type="string">col-name</argument>
+                            <argument name="column_css_class" xsi:type="string">col-name</argument>
+                        </arguments>
+                    </block>
+
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="description">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Description</argument>
+                            <argument name="index" xsi:type="string">description</argument>
+                            <argument name="header_css_class" xsi:type="string">col-description</argument>
+                            <argument name="column_css_class" xsi:type="string">col-description</argument>
+                        </arguments>
+                    </block>
+
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="date_from">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Start Date</argument>
+                            <argument name="index" xsi:type="string">date_from</argument>
+                            <argument name="type" xsi:type="string">date</argument>
+                            <argument name="header_css_class" xsi:type="string">col-date_from</argument>
+                            <argument name="column_css_class" xsi:type="string">col-date_from</argument>
+                            <argument name="renderer" xsi:type="string">Magento\Backend\Block\Widget\Grid\Column\Renderer\Datetime</argument>
+                        </arguments>
+                    </block>
+
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="date_to">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">End Date</argument>
+                            <argument name="index" xsi:type="string">date_to</argument>
+                            <argument name="type" xsi:type="string">date</argument>
+                            <argument name="header_css_class" xsi:type="string">col-date_to</argument>
+                            <argument name="column_css_class" xsi:type="string">col-date_to</argument>
+                            <argument name="renderer" xsi:type="string">Magento\Backend\Block\Widget\Grid\Column\Renderer\Datetime</argument>
+                        </arguments>
+                    </block>
+
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="status">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Status</argument>
+                            <argument name="index" xsi:type="string">status</argument>
+                            <argument name="header_css_class" xsi:type="string">col-status</argument>
+                            <argument name="column_css_class" xsi:type="string">col-status</argument>
+                            <argument name="options" xsi:type="options" model="Magetrend\Scheduler\Model\Config\Source\ScheduleStatus"/>
+                            <argument name="filter" xsi:type="string">Magento\Backend\Block\Widget\Grid\Column\Filter\Select</argument>
+                            <argument name="renderer" xsi:type="string">Magetrend\Scheduler\Block\Adminhtml\Schedule\Grid\Column\Renderer\Status</argument>
+                        </arguments>
+                    </block>
+
+                </block>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

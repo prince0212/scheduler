@@ -1,0 +1,23 @@
+<?php
+/**
+ * MB "Vienas bitas" (Magetrend.com)
+ *
+ * @category MageTrend
+ * @package  Magetend/Scheduler
+ * @author   Edvinas St. <edwin@magetrend.com>
+ * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     http://www.magetrend.com/magento-2-scheduler
+ */
+?>
+<?php $statuses = $block->getStatuses(); ?>
+<div class="legend">
+    <ul>
+        <?php foreach ($statuses as $status) : ?>
+            <li>
+                <span class="schedule-status schedule-status-<?php echo $status['value']; ?>">
+                    <?php echo $status['label']; ?>
+                </span><?php echo $status['tooltip']; ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
